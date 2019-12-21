@@ -83,18 +83,24 @@ communication.greet("coworker")
 communication.greet("friend")
 
 
-#raiseによるエラー処理例
-begin
-# 通常処理
-通常処理
-...
-rescue
-# エラー時処理
-エラー時処理
-...
+#raiseによるエラー処理例(チェリー本p.344より)
+# 大量のユーザにメールを送信する
+users.each do |user|
+	begin
+	#通常の処理
+	#メールを送信する
+	send_mail_to(user)
+rescue => e
+	#エラー時の処理
+	例外のクラス名、エラーメッセージ、バックトレースをターミナル出力
+	puts "#{e.class}: #{e.message}"
+	puts e.backtrace
+  end
 end
 
-
+# 出力結果は以下
+# Traceback (most recent call last):
+# practice.rb:1:in `<main>': undefined local variable or method `users' for main:Object (NameError)
 
 
 
