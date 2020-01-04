@@ -90,7 +90,7 @@ users.each do |user|
 	#通常の処理
 	#メールを送信する
 	send_mail_to(user)
-rescue => e
+	rescue => e
 	#エラー時の処理
 	例外のクラス名、エラーメッセージ、バックトレースをターミナル出力
 	puts "#{e.class}: #{e.message}"
@@ -103,7 +103,30 @@ end
 # practice.rb:1:in `<main>': undefined local variable or method `users' for main:Object (NameError)
 
 
+# レスキューしないでraiseする処理の例
 
+
+
+
+class ExceptionTest
+  def test(num)
+   if num.to_i == 10
+       puts "10だよ！"
+   else
+       raise ArgumentError, "規定されている以外の数値です"
+   end
+  end
+end
+
+obj = ExceptionTest.new
+# 例外発生
+obj.test(9)
+
+
+# 出力結果
+# Traceback (most recent call last):
+#         1: from practice.rb:18:in `<main>'
+# practice.rb:11:in `test': 規定されている以外の数値です (ArgumentError)
 
 
 
