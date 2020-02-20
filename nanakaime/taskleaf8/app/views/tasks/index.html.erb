@@ -58,6 +58,7 @@
      <th scope="col-md-4"><%= link_to task.name, tasks_show_path %></th>
      <th scope="col-md-4"><%= task.description %></th>
 	 <th scope="col-md-4"><%= task.created_at %></th>
+   byebug
 	 <th scope="col-md-4"><%= link_to '編集', '/tasks/:id/edit', class: 'btn btn-primary mr-3'%></th>
 	 <th scope="col-md-4"><%= link_to '削除', '/tasks/:id', class: 'btn btn-danger mr-3'%></th>
     </tr>

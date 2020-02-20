@@ -1,0 +1,52 @@
+<p>#HelloWorldと出力してみる</p>
+<% greeting = "HelloWorld" %>
+<%= p greeting %><br>
+
+
+<p>#コンソールに1~10まで足した結果を表示してみよう　ただしfor文を使うこと</p>
+<% numbers = [1,2,3,4,5,6,7,8,9,10] %>
+<% sum = 0 %>
+<% for i in numbers %>
+<%	sum += i %>
+<% end %>
+<%= p sum %>
+
+<p>#コンソールに「引数が0なら偽。引数が1なら真」と表示してみよう。 if文で表現できる。出来ればメソッドも用意して。</p>
+<% n = 1 %>
+<% if n == 1 %>
+<%=	p "真" %>
+<% elsif n == 0 %>
+<%=	p "偽" %>
+<% end %>
+<p># → 真　と表示されるはず</p>
+
+<% def number(n) %>
+<%	if n == 1 %>
+<% p "真" %>
+<% 	elsif n == 0 %>
+<% p "偽" %>
+<%	end %>
+<% end%>
+
+<%= number(1) %>
+<p># → 真　と表示されるはず</p>
+<%= number(0) %>
+<p># → 偽　と表示されるはず</p>
+
+<br><%= greet1("Hello") %>
+
+<br><%= greet2("yes") %>
+
+
+<% communication = Communication.new %>
+
+<br><%= communication.greet3("boss") %>
+<br><%= communication.greet3("coworker") %>
+<br><%= communication.greet3("friend") %>
+
+<br> <% obj = ExceptionTest.new %>
+<p># 例外発生</p>
+<%= obj.test(10) %>
+<p>※１０以外の数値を入力すると,ArgumentError と表示されるはず</p>
+
+

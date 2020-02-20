@@ -1,0 +1,21 @@
+
+<div class="nav justify-content-end">
+        <%= link_to  '一覧', tasks_path, class: 'nav-link' %>
+</div>
+
+
+<%= form_tag(tasks_path) do %>
+        <h2>個人情報登録のご登録</h2>
+	 	<div class="form-group">
+         <%= label_tag "form-name", "Name" %>
+    	 <%= text_field :task, :name, id:"form-name", class:"form-control", placeholder: "お名前です"%>
+  		</div>
+		<div class="form-group">
+         <%= label_tag "task_description", "詳しい内容" %>
+         <%= text_field :task, :description, id:"task_description", class:"form-control", placeholder: "ご説明内容"%>
+　　　　　</div>
+		<div class="form-group">
+         <%= submit_tag "登録する", class:"btn btn-primary" %>
+　　　　　</div>
+<% end %>
+

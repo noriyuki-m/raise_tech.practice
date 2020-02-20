@@ -12,7 +12,9 @@ class TasksController < ApplicationController
   end
 
   def edit
+    # byebug
     @task = Task.find(params[:id])
+    # binding.pry
   end
 
   def update

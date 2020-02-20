@@ -1,0 +1,24 @@
+  <%= form_tag("/tasks/"+@task.id.to_s,:method=>:patch) do %>
+        <h2>個人情報登録の編集</h2>
+	 	<div class="form-group">
+  <!--        <label for="task_name">お名前</label> -->
+         <%= label_tag "form-name", "Name" %>
+		 <!-- <input placeholder="お名前"  class="form-control" id="task_name" type="text" name="task[name]" /> -->
+    	 <%= text_field :tasks, :name, id:"form-name", class:"form-control", value:@task.name %>
+  		</div>
+
+		<div class="form-group">
+         <%= label_tag "task_description", "詳しい内容" %>
+<!--     <label for="task_description">詳しい内容</label> -->
+         <%= text_field :tasks, :description, id:"task_description", class:"form-control",  value:@task.description %>
+<!--  	 <textarea placeholder="ご説明" class="form-control" id="task_description" type="text" name="task[description]"> 
+		 </textarea>
+ -->
+　　　　　</div>
+
+		<div class="form-group">
+		<!--  <input type="submit" name="commit" value="登録する" class="btn btn-primary" data-disable-with="登録する" /> -->
+        <!-- 以下の<$= submit_tag と同様の意味 -->
+         <%= submit_tag "更新する", class:"btn btn-primary" %>
+　　　　　</div> 
+<% end %>

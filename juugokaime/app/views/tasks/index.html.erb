@@ -1,0 +1,41 @@
+    <header>
+         <div class="top-text">
+           <h1> タイトル</h1>
+           <p id="sub">sub title</p>
+          </div>
+    </header>    
+
+
+<h1>index.html.erbのファイルに記入</h1>
+<p>Find me in app/views/tasks/index.html.erb</p>
+	<div class="form-group">
+		<%= link_to  '新規登録', new_task_path, class: 'btn btn-primary' %>
+	</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+     <th scope="col-md-4">ID</th>	
+     <th scope="col-md-4">名前</th>
+     <th scope="col-md-4">説明</th>
+     <th scope="col-md-4">登録日時</th>
+     <th></th>
+    </tr>
+  </thead>
+  <% @tasks.each do |task| %>
+  <tbody>
+  	<tr>
+     <th scope="col-md-4"><%= task.id %></th>	
+     <th scope="col-md-4"><%= link_to task.name, task %></th>
+     <th scope="col-md-4"><%= task.description %></th>
+	 <th scope="col-md-4"><%= task.created_at %></th>
+	 <th scope="col-md-4"><%= link_to '編集', edit_task_path(task), class: 'btn btn-primary mr-3'%></th>
+	 <th scope="col-md-4"><%= link_to '削除', task, method: :delete, data: { confirm: "タスク「#{task.name}」を削除します。よろしいでっか？"},class: 'btn btn-danger mr-3'%></th>
+
+    </tr>
+  </tbody>
+  <% end %>
+ </thead>
+
+

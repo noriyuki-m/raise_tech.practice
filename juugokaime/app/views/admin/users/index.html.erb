@@ -1,0 +1,40 @@
+<h1>ユーザー一覧：usersフォルダのindex.html.erbのファイルに記入</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+	<div class="form-group">
+		<%= link_to  '新規登録', new_admin_user_path, class: 'btn btn-primary' %>
+	</div>
+
+<table class="table">
+  <thead>
+    <tr>
+     <th scope="col-md-4">ID</th>	
+     <th scope="col-md-4">名前</th>
+     <th scope="col-md-4">メール</th>
+     <th scope="col-md-4">権限</th>     
+     <th scope="col-md-4">登録日時</th>
+     <th scope="col-md-4">更新日時</th>
+     <th></th>
+    </tr>
+  </thead>
+  <% @users.each do |user| %>
+  <tbody>
+  	<tr>
+     <th scope="col-md-4"><%= user.id %></th>	
+     <th scope="col-md-4"><%= link_to user.name, [:admin, user]%></th> 
+     <th scope="col-md-4"><%= link_to user.email,[:admin, user]%></th>
+     <th scope="col-md-4"><%= link_to user.admin? ? 'あり' : 'なし'%></th>
+	 <th scope="col-md-4"><%= user.created_at %></th>
+	 <th scope="col-md-4"><%= user.updated_at %></th>
+	 <th scope="col-md-4"><%= link_to '編集', edit_admin_user_path(user), class: 'btn btn-primary mr-3'%></th>
+	 <th scope="col-md-4">
+	 	<%= link_to '削除', [:admin, user], method: :delete, data: { confirm: "タスク「#{user.name}」をほんま削除します。よいか？"},class: 'btn btn-danger mr-3'%></th>
+
+<!--    redirect_to"/", notice: "お名前「#{params["tasks"]["name"]}」を登録しました。"
+ -->
+
+    </tr>
+  </tbody>
+  <% end %>
+ </thead>
+
+

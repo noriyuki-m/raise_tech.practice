@@ -1,0 +1,37 @@
+<h1>個人情報の詳細(管理者用)</h1>
+
+<div class="nav justify-content-end">
+ <%= link_to '一覧へ戻る', admin_users_path, class: 'nav-link' %>
+</div>
+
+<table class="table">
+  <tbody>
+  	<tr>
+     <th scope="col-md-4">ID</th>	
+     <td scope="col-md-4"><%= @user.id %></td>
+    </tr>
+    <tr>	
+     <th scope="col-md-4">名前</th>
+     <td scope="col-md-4"><%= @user.name %></td>
+    </tr>
+     <th scope="col-md-4">メールアドレス</th>
+     <td scope="col-md-4"><%= @user.email %></td>
+    </tr>
+   </tr>
+     <th scope="col-md-4">管理者権限</th>
+     <td scope="col-md-4"><%= @user.admin? ? 'あり' : 'なし' %></td>
+    </tr>
+    <tr>
+     <th scope="col-md-4">登録日時</th>
+	 <td scope="col-md-4"><%= @user.created_at %></td>
+    </tr>
+    <tr>
+     <th scope="col-md-4">更新日時</th>
+	 <td scope="col-md-4"><%= @user.updated_at %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to '編集', edit_admin_user_path, class: 'btn btn-primary mr-3'%>
+<%= link_to '削除', [:admin, @user], method: :delete, data: { confirm: "タスク「#{@user.name}」を削除します。よろしいんか？"},class: 'btn btn-danger mr-3'%>
+
